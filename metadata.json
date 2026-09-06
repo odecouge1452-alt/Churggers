@@ -1,0 +1,6 @@
+{
+  "name": "Churggers",
+  "description": "Flavor In Your Face, But In A Good Way! Official website for Churggers fast-food burgers, cheesy fries, shakes, and store locator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
