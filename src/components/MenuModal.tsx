@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Flame, Star, Plus, Search, Check, ShoppingBag } from 'lucide-react';
+import { X, Flame, Star, Plus, Search, Check, ShoppingBag, Info } from 'lucide-react';
 import { PillButton } from './PillButton';
+import { NutritionPopover } from './NutritionPopover';
 import { MENU_ITEMS } from '../data/mockData';
 import { MenuItem } from '../types';
 
@@ -22,6 +23,21 @@ export const MenuModal: React.FC<MenuModalProps> = ({
   const [customOptions, setCustomOptions] = useState<string[]>([]);
   const [itemQuantity, setItemQuantity] = useState<number>(1);
   const [addedAlert, setAddedAlert] = useState<string | null>(null);
+  const [activeNutritionItemId, setActiveNutritionItemId] = useState<string | null>(null);
+
+  // Close nutrition popover on outside click
+  useEffect(() => {
+    const handleDocumentClick = (e: MouseEvent) => {
+      if (activeNutritionItemId) {
+        const target = e.target as HTMLElement;
+        if (!target.closest('.nutrition-popover') && !target.closest('.nutrition-toggle-btn')) {
+          setActiveNutritionItemId(null);
+        }
+      }
+    };
+    document.addEventListener('mousedown', handleDocumentClick);
+    return () => document.removeEventListener('mousedown', handleDocumentClick);
+  }, [activeNutritionItemId]);
 
   if (!isOpen) return null;
 
@@ -161,7 +177,7 @@ export const MenuModal: React.FC<MenuModalProps> = ({
             <div
               key={item.id}
               onClick={() => handleOpenCustom(item)}
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 p-4 flex flex-col justify-between group cursor-pointer"
+              className="relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 p-4 flex flex-col justify-between group cursor-pointer"
             >
               <div>
                 <div className="relative h-44 w-full rounded-xl overflow-hidden mb-3.5 bg-gray-100">
@@ -198,13 +214,34 @@ export const MenuModal: React.FC<MenuModalProps> = ({
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2 mb-2 text-xs text-[#6B7280]">
-                  <span className="flex items-center gap-0.5 text-[#E9C46A] font-bold">
-                    <Star className="w-3.5 h-3.5 fill-[#E9C46A]" />
-                    {item.rating}
-                  </span>
-                  <span>•</span>
-                  <span>{item.calories} kcal</span>
+                <div className="flex items-center justify-between mb-2 text-xs">
+                  <div className="flex items-center gap-2 text-[#6B7280]">
+                    <span className="flex items-center gap-0.5 text-[#E9C46A] font-bold">
+                      <Star className="w-3.5 h-3.5 fill-[#E9C46A]" />
+                      {item.rating}
+                    </span>
+                    <span>•</span>
+                    <span className="font-medium text-gray-700">{item.calories} kcal</span>
+                  </div>
+
+                  {/* Clickable 'i' icon to open nutrition & macro popover */}
+                  <button
+                    id={`menu-item-info-${item.id}`}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveNutritionItemId((prev) => (prev === item.id ? null : item.id));
+                    }}
+                    className={`nutrition-toggle-btn inline-flex items-center justify-center w-5 h-5 rounded-full transition-all duration-200 cursor-pointer ${
+                      activeNutritionItemId === item.id
+                        ? 'bg-[#E63946] text-white shadow-xs scale-105'
+                        : 'bg-gray-100 hover:bg-[#E63946] text-gray-500 hover:text-white'
+                    }`}
+                    title={`View calories and macro-nutrients for ${item.name}`}
+                    aria-label={`View calories and macro-nutrients for ${item.name}`}
+                  >
+                    <Info className="w-3 h-3" />
+                  </button>
                 </div>
 
                 <p className="text-xs text-[#6B7280] line-clamp-2 leading-relaxed mb-3">
@@ -222,6 +259,16 @@ export const MenuModal: React.FC<MenuModalProps> = ({
                   Add
                 </button>
               </div>
+
+              {/* In-Card Nutrition & Macro-Nutrient Popover */}
+              <AnimatePresence>
+                {activeNutritionItemId === item.id && (
+                  <NutritionPopover
+                    item={item}
+                    onClose={() => setActiveNutritionItemId(null)}
+                  />
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

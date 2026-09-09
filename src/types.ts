@@ -1,9 +1,19 @@
+export interface MacroNutrients {
+  protein: number; // in grams
+  carbs: number;   // in grams
+  fat: number;     // in grams
+  fiber?: number;  // in grams
+  sugar?: number;  // in grams
+  sodium?: number; // in mg
+}
+
 export interface MenuItem {
   id: string;
   name: string;
   category: 'burgers' | 'sides' | 'shakes' | 'combos';
   price: number;
   calories: number;
+  macros?: MacroNutrients;
   description: string;
   image: string;
   rating: number;

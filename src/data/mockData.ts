@@ -8,6 +8,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'burgers',
     price: 8.99,
     calories: 680,
+    macros: {
+      protein: 38,
+      carbs: 46,
+      fat: 38,
+      fiber: 3,
+      sugar: 7,
+      sodium: 980
+    },
     description: 'Double smashed grass-fed beef, melted cheddar cheese, crisp butterhead lettuce, fresh tomato, secret Churggers glaze on toasted brioche.',
     image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop&q=80',
     rating: 4.9,
@@ -20,6 +28,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'burgers',
     price: 9.79,
     calories: 740,
+    macros: {
+      protein: 44,
+      carbs: 54,
+      fat: 40,
+      fiber: 4,
+      sugar: 8,
+      sodium: 1140
+    },
     description: 'Crispy buttermilk chicken breast or prime beef, pepper jack cheese, pickled jalapeños, smoked bacon strips, and spicy habanero aioli.',
     image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&auto=format&fit=crop&q=80',
     rating: 4.8,
@@ -33,6 +49,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'burgers',
     price: 11.49,
     calories: 820,
+    macros: {
+      protein: 48,
+      carbs: 49,
+      fat: 50,
+      fiber: 3,
+      sugar: 6,
+      sodium: 1260
+    },
     description: 'Charred double beef patty, sautéed balsamic mushrooms, Swiss gruyère, crispy smoked bacon, and black truffle crema.',
     image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&auto=format&fit=crop&q=80',
     rating: 5.0,
@@ -45,6 +69,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'burgers',
     price: 10.29,
     calories: 790,
+    macros: {
+      protein: 46,
+      carbs: 62,
+      fat: 42,
+      fiber: 4,
+      sugar: 14,
+      sodium: 1390
+    },
     description: 'Smoked pulled beef & smash patty, crispy onion rings, sharp American cheddar, and sweet hickory BBQ sauce.',
     image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600&auto=format&fit=crop&q=80',
     rating: 4.7,
@@ -56,6 +88,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'sides',
     price: 5.49,
     calories: 490,
+    macros: {
+      protein: 12,
+      carbs: 56,
+      fat: 25,
+      fiber: 5,
+      sugar: 3,
+      sodium: 840
+    },
     description: 'Golden skin-on russet potato fries drenched in warm cheddar fondue, grilled caramelized onions, and house sauce drizzle.',
     image: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?w=600&auto=format&fit=crop&q=80',
     rating: 4.9,
@@ -68,6 +108,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'sides',
     price: 4.99,
     calories: 420,
+    macros: {
+      protein: 8,
+      carbs: 51,
+      fat: 21,
+      fiber: 4,
+      sugar: 2,
+      sodium: 780
+    },
     description: 'Crispy seasoned spiral potato twisters tossed in Louisiana spices and served with cooling garlic ranch.',
     image: cajunTwistersImg,
     rating: 4.8,
@@ -80,6 +128,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'sides',
     price: 7.29,
     calories: 560,
+    macros: {
+      protein: 46,
+      carbs: 32,
+      fat: 28,
+      fiber: 2,
+      sugar: 2,
+      sodium: 1050
+    },
     description: '4-piece all-white meat tenders battered in herb crust, served with honey mustard and smoky BBQ dip.',
     image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80',
     rating: 4.9,
@@ -91,6 +147,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'shakes',
     price: 5.99,
     calories: 520,
+    macros: {
+      protein: 11,
+      carbs: 74,
+      fat: 20,
+      fiber: 2,
+      sugar: 62,
+      sodium: 260
+    },
     description: 'Real California strawberries hand-spun with vanilla bean custard, topped with whipped mountain cream and waffle biscuit.',
     image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&auto=format&fit=crop&q=80',
     rating: 4.9,
@@ -103,6 +167,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'shakes',
     price: 6.29,
     calories: 610,
+    macros: {
+      protein: 13,
+      carbs: 84,
+      fat: 25,
+      fiber: 4,
+      sugar: 69,
+      sodium: 310
+    },
     description: 'Belgian dark chocolate fudge, chocolate crunch pearls, creamy milk base, and chocolate drizzle rim.',
     image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&auto=format&fit=crop&q=80',
     rating: 4.9,
@@ -114,6 +186,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'shakes',
     price: 5.49,
     calories: 280,
+    macros: {
+      protein: 3,
+      carbs: 66,
+      fat: 1,
+      fiber: 3,
+      sugar: 56,
+      sodium: 45
+    },
     description: 'Tropical Alphonso mango purée blended with crushed ice, passionfruit pearls, and fresh mint sprig.',
     image: 'https://images.unsplash.com/photo-1546173159-315724a31696?w=600&auto=format&fit=crop&q=80',
     rating: 4.7,
@@ -125,6 +205,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'combos',
     price: 15.99,
     calories: 1250,
+    macros: {
+      protein: 62,
+      carbs: 138,
+      fat: 54,
+      fiber: 8,
+      sugar: 48,
+      sodium: 2080
+    },
     description: 'Churggers Classic burger, large Cheesy Fries, handcrafted Shake of your choice, plus dipping sauces.',
     image: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&auto=format&fit=crop&q=80',
     rating: 5.0,
@@ -137,6 +225,14 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'combos',
     price: 24.99,
     calories: 1980,
+    macros: {
+      protein: 98,
+      carbs: 202,
+      fat: 90,
+      fiber: 12,
+      sugar: 64,
+      sodium: 3120
+    },
     description: '2 Burgers (Classic + Spicy Deluxe), 2 Medium Fries, 6 Crispy Tenders, and 2 Soft Drinks or Shakes.',
     image: 'https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80',
     rating: 4.9,
